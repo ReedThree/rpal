@@ -1,0 +1,22 @@
+[package]
+name = "rpal"
+version = "0.1.0"
+edition = "2021"
+authors = ["ReedThree"]
+description = "Test program(aka. Pal) by comparing program output with expected output or output from \"standard program\", with multi-thread and test session support."
+readme = "README.md"
+repository = "https://github.com/ReedThree/rpal"
+license = "GPL-3.0-or-later"
+keywords = ["data", "testcase", "oi", "acm", "testcase-generator"]
+categories = ["command-line-utilities", "development-tools::testing"]
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "4.5.1", features = ["derive"] }
+directories = "5.0.1"
+rand = "0.8.5"
+regex = "1.10.3"
+serde = { version = "1.0.197", features = ["derive"] }
+serde_json = "1.0.114"
+uuid = { version = "1.7.0", features = ["v4", "serde"] }
+wait-timeout = "0.2.0"
