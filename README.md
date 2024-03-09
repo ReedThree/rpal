@@ -1,5 +1,6 @@
 # Reed Pal
 [中文](README.zh-cn.md)
+
 Reed Pal is a program testing tool with concise config syntax. It can find bugs in your program("user program") by checking its output with expected output(which can be written to test config file or get from "standard program") in given input(with glob expansion and random generation supported). Reed Pal runs test in parallel to greatly reduce time cost. Reed Pal also supports "session", so you can get detailed info of every failed tests after test finished, and retest after fixing bugs.
 
 # Usage
