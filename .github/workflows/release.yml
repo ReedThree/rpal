@@ -158,13 +158,6 @@ jobs:
         echo "TARGET_FLAGS=--target ${{ matrix.target }}" >> $GITHUB_ENV
         echo "TARGET_DIR=./target/${{ matrix.target }}" >> $GITHUB_ENV
     
-    - name: Creating directory for archive
-      shell: bash
-      run: |
-        mkdir -p "$ARCHIVE"
-        cp "$BIN" "$ARCHIVE"/
-        cp {README.md,LICENSE.md} "$ARCHIVE"/
-
     - name: Show command used for Cargo
       shell: bash
       run: |
@@ -203,7 +196,14 @@ jobs:
       run: |
         version="${{ needs.create-release.outputs.version }}"
         echo "ARCHIVE=rpal-$version-${{ matrix.target }}" >> $GITHUB_ENV
-
+    
+    - name: Creating directory for archive
+      shell: bash
+      run: |
+        mkdir -p "$ARCHIVE"
+        cp "$BIN" "$ARCHIVE"/
+        cp {README.md,LICENSE.md} "$ARCHIVE"/
+    
     - name: Build archive (Windows)
       shell: bash
       if: matrix.os == 'windows-latest'
