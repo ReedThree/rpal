@@ -157,6 +157,13 @@ jobs:
       run: |
         echo "TARGET_FLAGS=--target ${{ matrix.target }}" >> $GITHUB_ENV
         echo "TARGET_DIR=./target/${{ matrix.target }}" >> $GITHUB_ENV
+    
+    - name: Creating directory for archive
+      shell: bash
+      run: |
+        mkdir -p "$ARCHIVE"
+        cp "$BIN" "$ARCHIVE"/
+        cp {README.md,LICENSE.md} "$ARCHIVE"/
 
     - name: Show command used for Cargo
       shell: bash
